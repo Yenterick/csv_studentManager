@@ -1,5 +1,3 @@
-import pprint as pp
-
 class View:
     @classmethod
     def mainMenu(cls):
@@ -7,6 +5,8 @@ class View:
 1. Register a new student
 2. Register a new subject
 3. Enroll a student
+4. Show all students
+5. Show all subjects
         
 0. Exit""")
 
@@ -18,9 +18,16 @@ class View:
 
 
     @classmethod
-    def printList(cls, name : str, list : list):
-        print(f"======= {name} =======")
-        pp.pprint(list)
+    def printStudents(cls, students : list):
+        print("======= STUDENTS =======")
+        for student in students:
+            print(f"{student['id']} - {student['name']} [Age: {student['age']} - gender: {student['gender']}]")
+
+    @classmethod
+    def printSubject(cls, subjects : list, students: list):
+        print("======= SUBJECTS =======")
+        for subject in subjects:
+            print(f"{subject['name']} - Students: {[s['name'] for s in students if s['id'] in subject['students']]}")
 
     @classmethod
     def printError(cls, error : str):

@@ -71,8 +71,9 @@ class CsvHelper:
                             self.addSubject(Subject(subject['name'], [Student(s['id'], s['name'], s['age'], s['gender']) for s in students if s['id'] in subject['students']]))
                             return
 
-                    View.printError("Student not found")
-            View.printError("There is no subject with name '" + subjectName + "'.")
+                View.printError("Student not found")
+                return
+        View.printError("There is no subject with name '" + subjectName + "'.")
 
 
 

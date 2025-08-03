@@ -52,6 +52,12 @@ class AppConsole:
                     subjectName = View.askString("Insert the subject name: ")
                     csvHelper.enrollStudent(subjectName, id, subjects, students)
 
+                case 4:
+                    View.printStudents(students)
+
+                case 5:
+                    View.printSubject(subjects, students)
+
                 case 0:
                     mainLoop = False
                 case _:
